@@ -1,15 +1,13 @@
 import React from 'react';
 
-
+// Imports
 import Button from './components/Button'
+import Input from './components/Input'
+import Clear from './components/Clear'
 
-function App() {
-  return (
-    <div>
-
-      <Button />
+export default props =>
+  <div className='App'>
+    <div className="calc-wrapper">
+      test
     </div>
-  );
-}
-
-export default App;
+  </div>

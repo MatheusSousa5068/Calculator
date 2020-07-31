@@ -1,21 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 
-import Input from '../Input'
+import './index.css'
 
-export default (props) => {
-    
-    const [num1, setNum1] = useState()
-    
-    function Calc() {
-        alert(this.state)
-    }
-    return (
-        <>
-            <Input id='1'/>
-            <Input id='2'/>
-            
-            <button onClick={Calc}>moves</button>
-        </>
-    )
-}
-
+export default props =>
+    <>
+        <div>
+            {props.children}
+        </div>
+    </>
