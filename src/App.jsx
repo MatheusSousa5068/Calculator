@@ -28,7 +28,7 @@ export default class App extends Component {
 
           <div className="row">
             <Button>4</Button>
-            <Button>5</Button>
+            <Button>52</Button>
             <Button>6</Button>
             <Button>&times;</Button>
           </div>
