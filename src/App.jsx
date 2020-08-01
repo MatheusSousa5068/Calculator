@@ -3,7 +3,7 @@ import React, { Component } from "react";
 // Imports
 import Button from "./components/Button";
 import Input from "./components/Input";
-import Clear from './components/Clear'
+import Clear from './components/Clear';
 
 export default class App extends Component {
   constructor(props) {
@@ -12,6 +12,12 @@ export default class App extends Component {
     this.state = {
       input: ""
     };
+
+    this.adding = this.adding.bind(this)
+  }
+
+  adding = val => {
+    this.setState({input: this.state.input + val})
   }
 
   render() {
@@ -20,31 +26,31 @@ export default class App extends Component {
         <div className="calc-wrapper">
           <Input input={this.state.input} />
           <div className="row">
-            <Button>7</Button>
-            <Button>8</Button>
-            <Button>9</Button>
-            <Button>/</Button>
+            <Button handleClick={this.adding}>7</Button>
+            <Button handleClick={this.adding}>8</Button>
+            <Button handleClick={this.adding}>9</Button>
+            <Button handleClick={this.adding}>/</Button>
           </div>
 
           <div className="row">
-            <Button>4</Button>
-            <Button>5</Button>
-            <Button>6</Button>
-            <Button>&times;</Button>
+            <Button handleClick={this.adding}>4</Button>
+            <Button handleClick={this.adding}>5</Button>
+            <Button handleClick={this.adding}>6</Button>
+            <Button handleClick={this.adding}>&times;</Button>
           </div>
 
           <div className="row">
-            <Button>1</Button>
-            <Button>2</Button>
-            <Button>3</Button>
-            <Button>+</Button>
+            <Button handleClick={this.adding}>1</Button>
+            <Button handleClick={this.adding}>2</Button>
+            <Button handleClick={this.adding}>3</Button>
+            <Button handleClick={this.adding}>+</Button>
           </div>
 
           <div className="row">
-            <Button>.</Button>
-            <Button>0</Button>
-            <Button>=</Button>
-            <Button>-</Button>
+            <Button handleClick={this.adding}>.</Button>
+            <Button handleClick={this.adding}>0</Button>
+            <Button handleClick={this.adding}>=</Button>
+            <Button handleClick={this.adding}>-</Button>
           </div>
           <div className="row">
             <Clear handleClear={() => this.setState({input: ''})}>Clear</Clear>
