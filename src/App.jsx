@@ -1,11 +1,11 @@
 import React, { Component } from "react";
+import "./App.css";
+import Button from "./components/Button/index.jsx";
+import Input from "./components/Input/index.jsx";
+import ClearButton from "./components/Clear/index.jsx";
+import * as math from "mathjs";
 
-// Imports
-import Button from "./components/Button";
-import Input from "./components/Input";
-import Clear from './components/Clear'
-
-export default class App extends Component {
+class App extends Component {
   constructor(props) {
     super(props);
 
@@ -14,43 +14,52 @@ export default class App extends Component {
     };
   }
 
+  addToInput = val => {
+    this.setState({ input: this.state.input + val });
+  };
+
+  handleEqual = () => {
+    this.setState({ input: math.evaluate(this.state.input) });
+  };
+
   render() {
     return (
-      <div className="App">
+      <div className="app">
         <div className="calc-wrapper">
           <Input input={this.state.input} />
           <div className="row">
-            <Button>7</Button>
-            <Button>8</Button>
-            <Button>9</Button>
-            <Button>/</Button>
-          </div>
-
-          <div className="row">
-            <Button>4</Button>
-            <Button>5</Button>
-            <Button>6</Button>
-            <Button>&times;</Button>
-          </div>
-
-          <div className="row">
-            <Button>1</Button>
-            <Button>2</Button>
-            <Button>3</Button>
-            <Button>+</Button>
-          </div>
-
-          <div className="row">
-            <Button>.</Button>
-            <Button>0</Button>
-            <Button>=</Button>
-            <Button>-</Button>
+            <Button handleClick={this.addToInput}>7</Button>
+            <Button handleClick={this.addToInput}>8</Button>
+            <Button handleClick={this.addToInput}>9</Button>
+            <Button handleClick={this.addToInput}>/</Button>
           </div>
           <div className="row">
-            <Clear handleClear={() => this.setState({input: ''})}>Clear</Clear>
+            <Button handleClick={this.addToInput}>4</Button>
+            <Button handleClick={this.addToInput}>5</Button>
+            <Button handleClick={this.addToInput}>6</Button>
+            <Button handleClick={this.addToInput}>*</Button>
+          </div>
+          <div className="row">
+            <Button handleClick={this.addToInput}>1</Button>
+            <Button handleClick={this.addToInput}>2</Button>
+            <Button handleClick={this.addToInput}>3</Button>
+            <Button handleClick={this.addToInput}>+</Button>
+          </div>
+          <div className="row">
+            <Button handleClick={this.addToInput}>.</Button>
+            <Button handleClick={this.addToInput}>0</Button>
+            <Button handleClick={() => this.handleEqual()}>=</Button>
+            <Button handleClick={this.addToInput}>-</Button>
+          </div>
+          <div className="row">
+            <ClearButton handleClear={() => this.setState({ input: "" })}>
+              Clear
+            </ClearButton>
           </div>
         </div>
       </div>
     );
   }
 }
+
+export default App;
