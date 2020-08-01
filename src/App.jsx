@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import * as math from 'mathjs'
 
 // Imports
 import Button from "./components/Button";
@@ -20,6 +21,10 @@ export default class App extends Component {
     this.setState({input: this.state.input + val})
   }
 
+  handleEqual = val => {
+    this.setState({input: math.evaluate(this.state.input)})
+  }
+
   render() {
     return (
       <div className="App">
@@ -36,7 +41,7 @@ export default class App extends Component {
             <Button handleClick={this.adding}>4</Button>
             <Button handleClick={this.adding}>5</Button>
             <Button handleClick={this.adding}>6</Button>
-            <Button handleClick={this.adding}>&times;</Button>
+            <Button handleClick={this.adding}>*</Button>
           </div>
 
           <div className="row">
@@ -49,7 +54,7 @@ export default class App extends Component {
           <div className="row">
             <Button handleClick={this.adding}>.</Button>
             <Button handleClick={this.adding}>0</Button>
-            <Button handleClick={this.adding}>=</Button>
+            <Button handleClick={this.handleEqual}>=</Button>
             <Button handleClick={this.adding}>-</Button>
           </div>
           <div className="row">
