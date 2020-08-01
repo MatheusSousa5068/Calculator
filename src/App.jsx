@@ -22,13 +22,13 @@ export default class App extends Component {
           <div className="row">
             <Button>7</Button>
             <Button>8</Button>
-            <Button>9a</Button>
+            <Button>9</Button>
             <Button>/</Button>
           </div>
 
           <div className="row">
             <Button>4</Button>
-            <Button>521</Button>
+            <Button>5</Button>
             <Button>6</Button>
             <Button>&times;</Button>
           </div>
