@@ -1,9 +1,11 @@
 import React, { Component } from "react";
-import "./App.css";
+
 import Button from "./components/Button/index.jsx";
 import Input from "./components/Input/index.jsx";
 import ClearButton from "./components/Clear/index.jsx";
 import * as math from "mathjs";
+
+import "./App.css";
 
 class App extends Component {
   constructor(props) {
